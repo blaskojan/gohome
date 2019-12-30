@@ -8,7 +8,8 @@ This example can be of course extended up to your needs 🙂
 
 ## Build
 
-1. Build golang binary using `-ldflags` and overwriting variables in Go programm (`package.var_name`)
+1. You might use either `-ldflags` or environment variables approach
+    1. Build golang binary using `-ldflags` and overwriting variables in Go programm (`package.var_name`)
     ```bash
     $ go build -ldflags "\
         -X main.version=1.2.3 \
@@ -16,6 +17,7 @@ This example can be of course extended up to your needs 🙂
         -X main.buildTime=$(date -u '+%Y-%m-%dT%H:%M:%SZ')" \
         main.go
     ```
+    2. Env variables - just to set `API_NAME`, `VERSION`, `COMMIT`, `BUILD_TIME` e.g. OSX `export API_NAME=my-awesome-app`
 2. Run binary
     ```bash
     $ ./main
